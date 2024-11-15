@@ -3,7 +3,10 @@ import { describe, it, expect, vitest } from "vitest";
 class Cell {
 
   nextGeneration(neighbors: boolean[]): boolean {
-    return neighbors.filter(Boolean).length >= 2;
+    const liveNeighbors = neighbors.filter(Boolean).length;
+
+    if (liveNeighbors > 3) return false;
+    return liveNeighbors >= 2;
   }
 
 }
