@@ -3,7 +3,7 @@ import { describe, it, expect, vitest } from "vitest";
 class Cell {
 
   nextGeneration(neighbors: boolean[]): boolean {
-    return false;
+    return neighbors.filter(Boolean).length >= 2;
   }
 
 }
