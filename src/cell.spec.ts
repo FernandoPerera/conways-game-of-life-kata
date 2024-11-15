@@ -8,14 +8,26 @@ class Cell {
 
 }
 
-describe("Cell", () => {
+describe("cell", () => {
 
-  it("with fewer than two live neighbors dies by underpopulation", () => {
-    const cell = new Cell();
+  describe("live", () => {
 
-    const isAlive = cell.nextGeneration([true, false, false, false, false, false, false, false]);
+    it("with fewer than two live neighbors dies by underpopulation", () => {
+      const cell = new Cell();
 
-    expect(isAlive).toBe(false);
-  });
+      const isAlive = cell.nextGeneration([true, false, false, false, false, false, false, false]);
+
+      expect(isAlive).toBe(false);
+    });
+
+    it("with two or three live neighbours lives on the next generation", () => {
+      const cell = new Cell();
+
+      const isAlive = cell.nextGeneration([true, false, true, true, false, false, false, false]);
+
+      expect(isAlive).toBe(true);
+    });
+
+  })
 
 });
