@@ -28,6 +28,14 @@ describe("cell", () => {
       expect(isAlive).toBe(true);
     });
 
+    it("with more than three live neighbors dies by overcrowding", () => {
+      const cell = new Cell();
+
+      const isAlive = cell.nextGeneration([true, false, true, true, false, false, true, false]);
+
+      expect(isAlive).toBe(false);
+    });
+
   })
 
 });
