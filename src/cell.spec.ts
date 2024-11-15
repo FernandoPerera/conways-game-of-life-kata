@@ -38,9 +38,9 @@ describe("cell", () => {
 
     for (let i = 0; i < 8; i++) {
       if (i < haveLive) {
-        cells.push(true);
+        cells.push(Cell.live());
       } else {
-        cells.push(false);
+        cells.push(Cell.dead());
       }
     }
 

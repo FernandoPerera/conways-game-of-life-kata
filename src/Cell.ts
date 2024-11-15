@@ -9,8 +9,10 @@ class Cell {
     return new Cell(false);
   }
 
-  nextGeneration(neighbors: boolean[]): Cell {
-    const liveNeighbors = neighbors.filter(Boolean).length;
+  nextGeneration(neighbors: Cell[]): Cell {
+    const liveNeighbors = neighbors.filter(
+      cell => cell.isAlive
+    ).length
 
     if (liveNeighbors > 3) return Cell.dead();
     return liveNeighbors >= 2
